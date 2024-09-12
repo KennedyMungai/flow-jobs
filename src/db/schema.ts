@@ -31,7 +31,7 @@ export const readJobsSchema = createSelectSchema(jobs).omit({
   updatedAt: true,
 });
 
-export const writeJobsSchema = createInsertSchema(jobs).omit({
+export const createJobsSchema = createInsertSchema(jobs).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
