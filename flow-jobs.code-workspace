@@ -6,6 +6,8 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"hookform",
+			"lucide",
 			"nextjs",
 			"tailwindcss",
 			"trpc"
