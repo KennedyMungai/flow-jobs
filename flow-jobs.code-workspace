@@ -6,9 +6,14 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Cupertino",
 			"hookform",
+			"Jamstack",
+			"journaling",
 			"lucide",
 			"nextjs",
+			"openai",
+			"smartdiary",
 			"tailwindcss",
 			"trpc"
 		]
