@@ -7,6 +7,7 @@ import {
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
+import { createSelectSchema, createInsertSchema } from "drizzle-zod";
 
 export const jobs = pgTable("jobs", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -24,4 +25,14 @@ export const jobs = pgTable("jobs", {
   approved: boolean("approved").default(false).notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").$onUpdate(() => new Date()),
+});
+
+export const readJobsSchema = createSelectSchema(jobs).omit({
+  updatedAt: true,
+});
+
+export const writeJobsSchema = createInsertSchema(jobs).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
 });
