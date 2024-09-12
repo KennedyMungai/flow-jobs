@@ -13,12 +13,19 @@ const HomePage = async () => {
   const availableJobs = readJobsSchema.array().parse(availableJobsQuery);
 
   return (
-    <main className="h-full overflow-y-auto overflow-x-clip">
-      <div className="space-y-4">
-        {availableJobs.map((job) => (
-          <JobsListItem key={job.id} job={job} />
-        ))}
+    <main className="mx-auto my-10 h-full max-w-4xl space-y-10 overflow-y-auto overflow-x-clip px-3">
+      <div className="space-y-5 text-center">
+        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Developer Jobs
+        </h1>
       </div>
+      <section>
+        <div className="space-y-4">
+          {availableJobs.map((job) => (
+            <JobsListItem key={job.id} job={job} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 };
