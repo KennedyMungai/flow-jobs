@@ -18,6 +18,7 @@ const HomePage = async () => {
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
           Developer Jobs
         </h1>
+        <p className="text-muted-foreground">Find your dream job</p>
       </div>
       <section>
         <div className="space-y-4">
