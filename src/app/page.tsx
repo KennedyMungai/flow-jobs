@@ -14,9 +14,11 @@ const HomePage = async () => {
 
   return (
     <main className="h-full overflow-y-auto overflow-x-clip">
-      {availableJobs.map((job) => (
-        <JobsListItem key={job.id} job={job} />
-      ))}
+      <div className="space-y-4">
+        {availableJobs.map((job) => (
+          <JobsListItem key={job.id} job={job} />
+        ))}
+      </div>
     </main>
   );
 };
