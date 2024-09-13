@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { HTMLProps } from "react";
 
-const h1 = ({ className, ...props }: HTMLProps<HTMLHeadingElement>) => {
+const H1 = ({ className, ...props }: HTMLProps<HTMLHeadingElement>) => {
   return (
     <h1
       className={cn(
@@ -13,4 +13,4 @@ const h1 = ({ className, ...props }: HTMLProps<HTMLHeadingElement>) => {
   );
 };
 
-export default h1;
+export default H1;
