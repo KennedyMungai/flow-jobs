@@ -17,6 +17,7 @@
 			"smartdiary",
 			"tailwindcss",
 			"trpc",
+			"tsquery",
 			"tsvector"
 		]
 	}
