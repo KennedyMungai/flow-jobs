@@ -62,6 +62,15 @@ const JobsFilterSidebar = async () => {
               ))}
             </Select>
           </div>
+          <div className="flex items-center gap-2">
+            <input
+              id="remote"
+              name="remote"
+              type="checkbox"
+              className="scale-125 accent-primary"
+            />
+            <Label htmlFor="remote">Remote Jobs</Label>
+          </div>
         </div>
       </form>
     </aside>
