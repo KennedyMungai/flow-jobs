@@ -4,6 +4,7 @@ import { db } from "@/db/drizzle";
 import { jobs } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import Select from "./select";
+import { jobTypes } from "@/lib/job-types";
 
 const filterJobs = async (formData: FormData) => {
   "use server";
@@ -30,6 +31,17 @@ const JobsFilterSidebar = async () => {
               placeholder="Title, company, etc."
               type="search"
             />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="job-type">Job Type</Label>
+            <Select id="job-type" name="job-type" defaultValue={""}>
+              <option value="">All types</option>
+              {jobTypes.map((jobType) => (
+                <option key={jobType} value={jobType}>
+                  {jobType}
+                </option>
+              ))}
+            </Select>
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="location">Location</Label>
