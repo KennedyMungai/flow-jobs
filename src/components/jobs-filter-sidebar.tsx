@@ -1,15 +1,32 @@
+import "server-only";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db } from "@/db/drizzle";
 import { jobs } from "@/db/schema";
 import { jobTypes } from "@/lib/job-types";
+import { jobsFilterSchema } from "@/lib/validation";
 import { eq } from "drizzle-orm";
+import { redirect } from "next/navigation";
 import Select from "./select";
 
-const filterJobs = async (formData: FormData) => {
+async function filterJobs(formData: FormData) {
   "use server";
-};
+
+  const values = Object.fromEntries(formData.entries());
+
+  const { q, location, type, remote } = jobsFilterSchema.parse(values);
+
+  const searchParams = new URLSearchParams({
+    ...(q && { q: q.trim() }),
+    ...(location && { location }),
+    ...(type && { type }),
+    ...(remote && { remote: "true" }),
+  });
+
+  redirect(`/?${searchParams.toString()}`);
+}
 
 const JobsFilterSidebar = async () => {
   const distinctLocations = (await db
@@ -34,8 +51,8 @@ const JobsFilterSidebar = async () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="job-type">Job Type</Label>
-            <Select id="job-type" name="job-type" defaultValue={""}>
+            <Label htmlFor="type">Job Type</Label>
+            <Select id="type" name="type" defaultValue={""}>
               <option value="">All types</option>
               {jobTypes.map((jobType) => (
                 <option
