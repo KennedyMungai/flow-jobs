@@ -1,10 +1,11 @@
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db } from "@/db/drizzle";
 import { jobs } from "@/db/schema";
+import { jobTypes } from "@/lib/job-types";
 import { eq } from "drizzle-orm";
 import Select from "./select";
-import { jobTypes } from "@/lib/job-types";
 
 const filterJobs = async (formData: FormData) => {
   "use server";
@@ -71,6 +72,9 @@ const JobsFilterSidebar = async () => {
             />
             <Label htmlFor="remote">Remote Jobs</Label>
           </div>
+          <Button type="submit" className="w-full">
+            Filter Jobs
+          </Button>
         </div>
       </form>
     </aside>
