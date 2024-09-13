@@ -33,7 +33,7 @@ export const jobs = pgTable(
   (table) => ({
     jobSearchIndex: index("jobSearchIndex").using(
       "gin",
-      sql`to_tsvector('english', ${table.title})`,
+      sql`to_tsvector('english', ${table.title} || ' ' || ${table.slug} || ' ' || ${table.description})`,
     ),
   }),
 );
