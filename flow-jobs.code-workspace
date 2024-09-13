@@ -16,7 +16,8 @@
 			"openai",
 			"smartdiary",
 			"tailwindcss",
-			"trpc"
+			"trpc",
+			"tsvector"
 		]
 	}
 }
