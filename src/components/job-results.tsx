@@ -52,9 +52,13 @@ const JobResults = async ({
 
   return (
     <div className="mb-4 grow space-y-8">
-      {availableJobs.map((job) => (
-        <JobsListItem key={job.id} job={job} />
-      ))}
+      {availableJobs.length ? (
+        availableJobs.map((job) => <JobsListItem key={job.id} job={job} />)
+      ) : (
+        <p className="mx-auto text-center text-xl font-medium text-muted-foreground">
+          No jobs found
+        </p>
+      )}
     </div>
   );
 };
