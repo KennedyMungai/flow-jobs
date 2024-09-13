@@ -37,7 +37,11 @@ const JobsFilterSidebar = async () => {
             <Select id="job-type" name="job-type" defaultValue={""}>
               <option value="">All types</option>
               {jobTypes.map((jobType) => (
-                <option key={jobType} value={jobType}>
+                <option
+                  key={jobType}
+                  value={jobType}
+                  className="p-2 font-medium"
+                >
                   {jobType}
                 </option>
               ))}
@@ -48,7 +52,11 @@ const JobsFilterSidebar = async () => {
             <Select id="location" name="location" defaultValue={""}>
               <option value="">All locations</option>
               {distinctLocations.map((location) => (
-                <option key={location} value={location}>
+                <option
+                  key={location}
+                  value={location}
+                  className="p-2 font-medium"
+                >
                   {location}
                 </option>
               ))}
