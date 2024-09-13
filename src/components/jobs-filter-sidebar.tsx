@@ -1,6 +1,5 @@
 import "server-only";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db } from "@/db/drizzle";
@@ -9,6 +8,7 @@ import { jobTypes } from "@/lib/job-types";
 import { jobsFilterSchema } from "@/lib/validation";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+import FormSubmitButton from "./form-submit-button";
 import Select from "./select";
 
 async function filterJobs(formData: FormData) {
@@ -89,9 +89,7 @@ const JobsFilterSidebar = async () => {
             />
             <Label htmlFor="remote">Remote Jobs</Label>
           </div>
-          <Button type="submit" className="w-full">
-            Filter Jobs
-          </Button>
+          <FormSubmitButton className="w-full">Filter Jobs</FormSubmitButton>
         </div>
       </form>
     </aside>
