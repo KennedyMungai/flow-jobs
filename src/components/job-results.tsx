@@ -55,7 +55,7 @@ const JobResults = async ({
       {availableJobs.length ? (
         availableJobs.map((job) => <JobsListItem key={job.id} job={job} />)
       ) : (
-        <p className="mx-auto text-center text-xl font-medium text-muted-foreground">
+        <p className="mx-auto mt-12 text-center text-xl font-medium text-muted-foreground">
           No jobs found
         </p>
       )}
