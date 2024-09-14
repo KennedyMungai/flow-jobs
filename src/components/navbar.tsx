@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +10,9 @@ const NavBar = () => {
           <Image src="/logo.png" width={60} height={60} alt="Flow Jobs Logo" />{" "}
           <span className="text-2xl font-bold tracking-tight">Flow Jobs</span>
         </Link>
+        <Button asChild>
+          <Link href="/jobs/new">Post a job</Link>
+        </Button>
       </nav>
     </header>
   );
