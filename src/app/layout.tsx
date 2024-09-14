@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "next-themes";
 import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,6 +41,7 @@ export default function RootLayout({
           >
             <NavBar />
             {children}
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
