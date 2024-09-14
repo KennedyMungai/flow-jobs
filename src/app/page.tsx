@@ -13,6 +13,20 @@ type Props = {
   };
 };
 
+const getTitle = ({ q, location, type, remote }: jobsFilterValues) => {
+  const titlePrefix = q
+    ? `${q} developer jobs `
+    : type
+      ? `${type} developer jobs - `
+      : remote
+        ? "Remote developer jobs "
+        : "All developer jobs";
+
+  const titleSuffix = location ? ` in ${location}` : "";
+
+  return `${titlePrefix}${titleSuffix}`.trim();
+};
+
 const HomePage = async ({
   searchParams: { location, q, remote, type },
 }: Props) => {
@@ -29,7 +43,7 @@ const HomePage = async ({
         <div className="">
           <ModeToggle />
         </div>
-        <H1>Developer Jobs</H1>
+        <H1>{getTitle(filterValues)}</H1>
         <p className="text-muted-foreground">Find your dream job</p>
       </div>
       <section className="flex flex-col gap-4 md:flex-row">
