@@ -18,8 +18,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Flow Jobs",
-  description: "A simple job post",
+  title: {
+    template: "%s | Flow Jobs",
+    default: "Flow Jobs",
+  },
+  description: "Find your dream job",
 };
 
 export default function RootLayout({
