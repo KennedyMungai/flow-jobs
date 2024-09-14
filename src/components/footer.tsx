@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-type Props = {};
-
 const Footer = () => {
   return (
     <footer className="border-t">
