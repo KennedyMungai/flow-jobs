@@ -3,6 +3,7 @@ import JobResults from "@/components/job-results";
 import JobsFilterSidebar from "@/components/jobs-filter-sidebar";
 import { ModeToggle } from "@/components/mode-toggle";
 import { jobsFilterValues } from "@/lib/validation";
+import { Metadata } from "next";
 
 type Props = {
   searchParams: {
@@ -25,6 +26,19 @@ const getTitle = ({ q, location, type, remote }: jobsFilterValues) => {
   const titleSuffix = location ? ` in ${location}` : "";
 
   return `${titlePrefix}${titleSuffix}`.trim();
+};
+
+export const generateMetadata = ({
+  searchParams: { q, location, remote, type },
+}: Props): Metadata => {
+  return {
+    title: getTitle({
+      q,
+      location,
+      type,
+      remote: remote === "true",
+    }),
+  };
 };
 
 const HomePage = async ({
