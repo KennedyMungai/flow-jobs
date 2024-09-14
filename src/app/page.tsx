@@ -32,12 +32,12 @@ export const generateMetadata = ({
   searchParams: { q, location, remote, type },
 }: Props): Metadata => {
   return {
-    title: getTitle({
+    title: `${getTitle({
       q,
       location,
       type,
       remote: remote === "true",
-    }),
+    })} | Flow Jobs`,
   };
 };
 
